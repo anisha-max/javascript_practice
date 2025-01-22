@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="heading" id="h1"><p>JS Practice</p> <span style="display: none;">hidden text</span></h1>
+    <h1 class="heading">DAY8</h1><style ba></style>
+
+    <ul>
+        <li>li1</li>
+        <li>li2</li>
+        <li>li3</li>
+    </ul>
+</body>
+
+<script>
+   const blue= document.getElementById('h1');
+  blue.style.background = 'blue'
+  blue.style.color = 'pink'
+  blue.setAttribute('class' , "heading")
+
+  blue.innerHTML
+  'JS Practice <span style="display: none;">hidden text</span>' //gives everthing in tag 
+blue.innerText
+'JS Practice' //only diplayed text shown
+
+  blue.textContent
+//'JS Practice hidden text'  All text hidden or not
+
+document.getElementById('h1'). childNodes //give NodeList not an array but has foreach 
+
+  const list = document.getElementsByTagName('li')  //HTML collection is provided which is not array so is converted in array for further work
+  const arr_list = Array.from(list)
+  arr_list.forEach((li)=>{li.style.color='orange'})
+
+
+  document.querySelector('.heading')
+  document.querySelector('#h1')
+  document.querySelectorAll('li')
+
+</script>
+</html>
