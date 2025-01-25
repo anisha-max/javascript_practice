@@ -1,0 +1,81 @@
+<!-- Event Listerner -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Events</title>
+</head>
+
+<body style="background-color: pink;">
+   <div>
+      <ul id="images">
+         <li><img src="D:\Screenshot 2024-10-24 162247 - Copy - Copy.png" style="width: 200px; height: 200px;" id="1">
+         </li>
+         <li><img src="D:\Screenshot 2024-10-24 162247 - Copy.png" style="width: 200px; height: 200px;" id="2"></li>
+         <li><img src="D:\Screenshot 2024-10-24 162247.png" style="width: 200px; height: 200px;" id="3"></li>
+      </ul>
+   </div>
+</body>
+<script>
+   // document.getElementById("1").addEventListener('click' , function(e){
+   //    e.target.remove()
+
+   // })
+
+
+   // document.getElementById("images").addEventListener('click' , function(e){
+   //    e.target.parentNode.remove()
+   //    console.log(e)
+   // })
+
+
+   // we also have 3rd argument that is Boolean for event bubbling 
+   // Event Bubbling is when an event occurs and bubbles (moves upward ) and trigers the moment on parent or upper
+   //process of propagating from the closest element to the farthest away element in the DOM (Document Object Modal) is called event bubbling.
+
+   // document.getElementById("images").addEventListener('click', function (e) {
+   //    console.log("ul clicked")
+   //    e.stopPropagation()
+   // }, true)
+   //false is default value
+
+   // document.getElementById("2").addEventListener('click', function () {
+   //    console.log("image clicked")
+   // })
+   //in to out happens as img inner ement is triggered first then the outer element ul
+
+   // if we put true outer element will not be trigered as no bubbeling happens
+
+   //this is event capturing moves from top to buttom
+   // document.getElementById("3").addEventListener('click', function () {
+   //    console.log(" 3rd image clicked")
+   // }, false)
+
+
+   //event propagation when one event is trigering another event present in parent or child
+
+   // document.getElementById("images").addEventListener('click', function (e) {
+   //    console.log("ul clicked")
+   //    e.stopPropagation()
+   // }, true)
+
+   //practice  => event spill over parent also gets affected
+
+   // document.getElementById("images").addEventListener('click', function (e) {
+   //       e.target.parentNode.remove()
+   //    })
+
+
+   document.getElementById("images").addEventListener('click', function (e) {
+      if (e.target.id != "images") { e.target.parentNode.remove() }
+   })
+
+
+</script>
+
+
+</html>
