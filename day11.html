@@ -1,0 +1,49 @@
+<!-- SYNC and ASYN -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>
+        hello this is day 11
+    </h1>
+    <button id="mybtn">start</button>
+    <button id="mybtn1">stop</button>
+</body>
+
+<script>
+
+    // let myinterval
+    // document.getElementsByTagName('h1')
+    // document.getElementById('mybtn').addEventListener('click', () => {
+    //      myinterval= setInterval(start, 1000)
+    // })
+    // document.getElementById('mybtn1').addEventListener('click', ()=> {
+    //     clearInterval(myinterval)
+    // } )
+
+    // function start() {
+    //     console.log("hello")
+    // }
+
+
+
+    let mytimeout
+    document.getElementById('mybtn').addEventListener('click', () => {
+        mytimeout = setTimeout(() => {
+            console.log('hi')
+        }, 1000);
+    })
+    clearTimeout(mytimeout)
+
+
+
+</script>
+
+</html>
