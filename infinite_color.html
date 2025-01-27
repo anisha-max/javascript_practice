@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <button id="start" style=" width: 100px; height: 100px;">Start</button>
+    <button id="stop" style=" width: 100px; height: 100px;">Stop</button>
+  </body>
+  <script>
+    let color_btn = document.getElementById('start')
+    let stop_btn = document.getElementById('stop')
+    let body = document.querySelector('body')
+    let my_interval
+    
+    const randomColor = function () {
+      let hex = '0123456789ABCDEF'
+      let color = '#'
+      for (let i = 0; i < 6; i++) {
+        color += hex[Math.floor(Math.random() * 16)]
+      }
+      return color
+    }
+    
+    color_btn.addEventListener('click', () => {
+     if(!my_interval){
+      my_interval = setInterval(() => {
+        body.style.background = randomColor()
+      }, 1000)
+     }
+    })
+    
+    stop_btn.addEventListener('click', () => {
+      clearInterval(my_interval)
+      //for optimisation ans clear code clearing the varibale when not in use
+      my_interval = null
+    })
+  </script>
+</html>
