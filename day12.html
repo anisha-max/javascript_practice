@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="get">Get data</button>
+    <div style="background-color: antiquewhite; width: 400px; height: 400px;">
+        <img id="avtar" style="height: 200px; width: 200px;">
+        <p id="repo"></p>
+    </div>
+
+    <div id="cat"></div>
+</body>
+
+<script>
+
+    const img = document.querySelector('#avtar')
+    const repo = document.querySelector('#repo')
+    const btn = document.querySelector('#get')
+    const url = "https://api.github.com/users/anisha-max"
+    let repo_data
+    let image
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url)
+
+
+    xhr.onreadystatechange = function () {
+        console.log(xhr.readyState)
+        if (xhr.readyState === 4) {
+            console.log(this.responseText)
+            console.log(this.responseURL)
+            //text for this function so use this
+            let my_data = JSON.parse(this.responseText)
+            repo_data = my_data.public_repos
+            image = my_data.avatar_url
+        }
+    }
+
+
+    function get_data() {
+
+        img.setAttribute('src', image)
+        repo.innerHTML = repo_data
+    }
+
+    xhr.send()
+
+    //4 states are present 
+
+    btn.addEventListener('click', get_data)
+
+
+
+
+    let facts
+    const cat = document.querySelector("#cat")
+    const cat_fact = new XMLHttpRequest()
+    let cat_url = "https://catfact.ninja/fact?max_length=140"
+
+
+
+    function load_fact() {
+        cat_fact.open("GET", cat_url)
+        cat_fact.send()
+       
+    }
+
+    cat_fact.onreadystatechange = function () {
+        if (cat_fact.readyState === 4) {
+            let json_fact = JSON.parse(this.responseText)
+            console.log(json_fact)
+            facts = json_fact.fact
+        }
+    }
+
+
+    setInterval(() => {
+        load_fact()
+        setTimeout(() => {
+            cat.innerHTML = facts
+        }, 1000);
+    }, 3000);
+
+</script>
+
+</html>
