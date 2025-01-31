@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>button</button>
+</body>
+
+<script>
+
+    //     class Bind {
+    //         constructor(server) {
+    //             this.server = server
+    //             document.querySelector("button").addEventListener("click" , this.handleclick.bind(this)) // bind used to pass the reference of constructor this to function
+
+    //         }
+    //         handleclick() {
+    //             console.log("clicked")
+    //             console.log(this.server)
+    //         }
+    //     }
+
+    // const binding = new Bind("server assecable")
+
+    console.log(Math.PI)  // not changing because the object has lot of properties as enumerable writable 
+
+    const property = Object.getOwnPropertyDescriptor(Math, "PI")
+    // console.log(property)
+
+    // the result 
+
+    // configurable
+    // : 
+    // false
+    // enumerable
+    // : 
+    // false
+    // value
+    // : 
+    // 3.141592653589793
+    // writable
+    // : 
+    // false
+
+    const test = {
+        time: "16-11-3",
+        place: "abcd"
+    }
+
+    Object.defineProperty(test, "time", {
+        writable: false,
+        enumerable: false
+    })
+
+    test.time = "45-8-9" //now value is not writable or enumerable
+
+    const testing = Object.getOwnPropertyDescriptor(test, "time")
+    // console.log(testing)
+
+
+
+    //********************************************Getter and Setter**************************************************//
+    //getter are used to get the value and setters are used to set the value 
+
+    class getset {
+        constructor(name, post) {
+            this.name = name,
+                this.post = post
+
+        }
+
+        get name() {
+            return this._name
+        }
+
+        set name(value) {
+            this._name = value.toUpperCase()  //_ is used to set the same variable but _variable is not accessable to user
+        }
+    }
+
+
+    const test2 = new getset("anisha", "jr. dev.")
+    // console.log(test2)
+
+
+    //********************************************Lexical scope and clouser**************************************************//
+    //when a function is totally defined inside function the child function has acess to all the varables etc of parent function
+
+    const myfunction = function (color) {
+        this.color = color
+        function material() {
+            let blue = "blue"
+            console.log(color)  // is accepting the parent variable
+        }
+        // function material2(){
+        //     console.log(color)
+        //     console.log(blue) // not found as brother
+        // }
+        // material()
+        // material2()
+
+        //return material// not only executional scope but the lexical scope is also passed this is used when we don't need to pass refrences rather then tirect passing of functions 
+
+    }
+    // myfunction()
+    document.querySelector("button").addEventListener("click" , myfunction("red"))
+    // material() direct execution 
+    // return material no execution but only reference is passed 
+
+    // for example
+
+
+</script>
+
+</html>
