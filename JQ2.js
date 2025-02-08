@@ -91,20 +91,65 @@
 
 
 //************************************Responsive Navigation Bar***************************************//
-let bar = document.querySelector(".bar")
+// let bar = document.querySelector(".bar")
+// let ul = document.querySelector("ul")
 
-let toogler = document.querySelector(".toggle")
-toogler.addEventListener("click", () => {
-    if (bar.classList.contains("my_hor_nav") ) {
-        bar.classList.add("my_ver_nav")
-        bar.classList.remove("my_hor_nav")
-        // console.log("click")
-    }
-    else if(bar.classList.contains("my_ver_nav") ){
-        bar.classList.add("my_hor_nav")
-        bar.classList.remove("my_ver_nav")
-    }
-    else{
-        console.log(bar.classList)
+// function hor_bar() {
+//     bar.classList.add("my_hor_nav")
+//     bar.classList.remove("my_ver_nav")
+//     toogler.classList.remove("width")
+//     ul.classList.add("d-flex")
+// }
+
+// function ver_bar() {
+//     bar.classList.add("my_ver_nav")
+//     bar.classList.remove("my_hor_nav")
+//     toogler.classList.add("width")
+//     ul.classList.remove("d-flex")
+// }
+
+// window.addEventListener("resize", () => {
+//     let width = screen.width
+//     if (width > 768) {
+//         ver_bar()
+//     }
+//     else {
+//         hor_bar()
+//     }
+// })
+
+
+// let toogler = document.querySelector(".toggle")
+// toogler.addEventListener("click", () => {
+//     if (bar.classList.contains("my_hor_nav")) {
+//         ver_bar()
+//     }
+//     else {
+//         hor_bar()
+//     }
+// })
+
+
+// ************************************MY MODAL************************************//
+let btn = document.querySelector(".my_btn")
+let close = document.querySelector(".close")
+let modal = document.querySelector(".my_modal")
+let i = 0
+
+close.addEventListener("click" , (a)=>{
+    modal.classList.add("d-none")
+    i=0
+})
+
+btn.addEventListener("click", () => {
+    console.log("enter")
+    if (!(i == 0)) {
+        modal.classList.add("d-none")
+        i = 0
+    } else {
+        modal.classList.remove("d-none")
+        i = 1
+        console.log("if")
     }
 })
+
