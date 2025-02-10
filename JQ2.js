@@ -131,25 +131,83 @@
 
 
 // ************************************MY MODAL************************************//
-let btn = document.querySelector(".my_btn")
-let close = document.querySelector(".close")
-let modal = document.querySelector(".my_modal")
-let i = 0
+// let btn = document.querySelector(".my_btn")
+// let close = document.querySelector(".close")
+// let modal = document.querySelector(".my_modal")
+// let i = 0
 
-close.addEventListener("click" , (a)=>{
-    modal.classList.add("d-none")
-    i=0
-})
+// close.addEventListener("click" , (a)=>{
+//     modal.classList.add("d-none")
+//     i=0
+// })
 
-btn.addEventListener("click", () => {
-    console.log("enter")
-    if (!(i == 0)) {
-        modal.classList.add("d-none")
-        i = 0
-    } else {
-        modal.classList.remove("d-none")
-        i = 1
-        console.log("if")
+// btn.addEventListener("click", () => {
+//     console.log("enter")
+//     if (!(i == 0)) {
+//         modal.classList.add("d-none")
+//         i = 0
+//     } else {
+//         modal.classList.remove("d-none")
+//         i = 1
+//         console.log("if")
+//     }
+// })
+
+// ************************************ACCORDIAN************************************
+
+// let btn = document.getElementsByTagName("button")
+// let acc_data = document.getElementsByClassName("acc_data")
+// let arr = Array.from(btn)
+// let acc_data_arr = Array.from(acc_data)
+// let acc_choice = document.getElementsByClassName("acc")
+// let arr_choice = Array.from(acc_choice)
+
+// function open_acc(index){
+//     acc_data_arr[index].classList.toggle("d-none")
+// }
+
+// arr.forEach((btn, index) => {
+//     btn.addEventListener("click", (e) => {
+//         e.stopPropagation();
+//         open_acc(index)
+//     } ,false)
+// })
+
+// arr_choice.forEach((acc_d , index)=>{
+//     acc_d.addEventListener("click", () => {
+//         open_acc(index)
+//     })
+// })
+
+
+let menu = document.getElementById("menu")[0]
+let url = "https://picsum.photos/v2/list"
+let obj_res
+
+ // Create <img> element
+
+
+async function await_function() {
+    try {
+        let response = await fetch(url)
+        if (!response.ok) {
+            console.log(error)
+        } else {
+            obj_res = await response.json()
+            my_data(obj_res)
+        }
+    } catch (error) {
+        console.log(error)
     }
-})
+}
 
+await_function()
+
+
+
+function my_data(data) {
+    let img = document.createElement("div");
+    data.map(element => {
+   console.log(element)
+    });
+}
