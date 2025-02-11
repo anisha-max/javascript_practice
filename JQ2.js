@@ -153,7 +153,7 @@
 //     }
 // })
 
-// ************************************ACCORDIAN************************************
+// ************************************ACCORDIAN************************************//
 
 // let btn = document.getElementsByTagName("button")
 // let acc_data = document.getElementsByClassName("acc_data")
@@ -180,34 +180,74 @@
 // })
 
 
-let menu = document.getElementById("menu")[0]
-let url = "https://picsum.photos/v2/list"
-let obj_res
-
- // Create <img> element
-
-
-async function await_function() {
-    try {
-        let response = await fetch(url)
-        if (!response.ok) {
-            console.log(error)
-        } else {
-            obj_res = await response.json()
-            my_data(obj_res)
-        }
-    } catch (error) {
-        console.log(error)
-    }
-}
-
-await_function()
 
 
 
-function my_data(data) {
-    let img = document.createElement("div");
-    data.map(element => {
-   console.log(element)
-    });
-}
+// ************************************MENU AND SEARCHABLE***********************************//
+
+// let search_box = document.getElementById("search")
+// let body = document.getElementsByTagName("body")[0]
+// let menu = document.getElementById("menu")
+// let url = "https://picsum.photos/v2/list"
+// let obj_res = []
+// let my_arr
+
+// // Create <img> element
+
+
+// async function get_data() {
+//     try {
+//         let response = await fetch(url)
+//         if (!response.ok) {
+//             console.log(error)
+//         } else {
+//             obj_res = await response.json()
+//             show_data(obj_res)
+//             console.log(obj_res)
+          
+//         }
+//     } catch (error) {
+//         [console.log(error)]
+//     }
+// }
+
+
+
+// function show_data(data) {
+//     data.forEach(({ author, download_url }) => {
+//         let child = document.createElement("div")
+//         child.classList.add("col-lg-4" , "col-md-6","col-12" )
+//         child.innerHTML = `
+//             <p>${author}</p>
+//             <img src= ${download_url} class="w-50"/> 
+//          `
+//         menu.appendChild(child)
+//     });
+// }
+
+
+// function filter_data() {
+//     let value = search_box.value.trim().toLowerCase();
+//     if (value == "") {
+//         show_data(obj_res)
+//     } else {
+//         my_arr = obj_res.filter(({author}) => author.toLowerCase().includes(value));
+//         console.log(my_arr)
+//         menu.innerHTML = ""
+//         show_data(my_arr)
+//     }
+// }
+
+// search_box.addEventListener("input", filter_data)
+// // search_box.addEventListener("click", filter_data)    for btn search
+
+
+// get_data()
+
+
+
+
+//************************************ Video background ***************************************//
+
+let video = document.getElementById("video")
+document.getElementById("play_pause")
