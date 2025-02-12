@@ -204,7 +204,7 @@
 //             obj_res = await response.json()
 //             show_data(obj_res)
 //             console.log(obj_res)
-          
+
 //         }
 //     } catch (error) {
 //         [console.log(error)]
@@ -249,5 +249,104 @@
 
 //************************************ Video background ***************************************//
 
-let video = document.getElementById("video")
-document.getElementById("play_pause")
+// let video = document.getElementById("video")
+// let play_pause = document.getElementById("play_pause")
+
+
+// play_pause.addEventListener("click" , ()=>{
+//     if(video.paused){
+//         video.play()
+//         play_pause.innerText = "Pause"
+//     }else{
+//         video.pause()
+//          play_pause.innerText = "Play"
+//     }
+// }
+
+// )
+
+
+//************************************ Navigation bar on scroll ***************************************//
+// let nav = document.getElementById("nav")
+// let warn = document.getElementById("warn")
+// let position = warn.getBoundingClientRect()
+
+// window.addEventListener("scroll" , ()=>{
+// if(window.scrollY >130 ){
+//     console.log("stuck")
+//     nav.classList.add("position-sticky" ,  "top-0")
+
+// }else{
+//     console.log("move")
+
+//     nav.classList.remove("position-sticky")
+
+// }
+
+// })
+
+//************************************ Countdown clock ***************************************//
+// let Countdown = document.querySelector(".clock")
+// let a = 59
+// let b = 59
+// let c = 24
+// let d = 7
+// let my_interval
+
+// function clock() {
+//     my_interval = setInterval(() => {
+//         a -= 1
+//         if (a == 0) {
+//             a = 59
+//             b -= 1
+//         }
+//         if (b == 0) {
+//             b = 59
+//             c -= 1
+//         }
+
+//         if (c == 0) {
+//             c = 24
+//             d -= 1
+//         }
+//         Countdown.innerHTML = `${d} : ${c} : ${b} : ${a} `
+//         console.log(d + ":" + c + ":" + b + ":" + a)
+//     }, 1000)
+
+// }
+// if (d == 0) {
+//  clearInterval(my_interval)
+// }
+
+
+// clock()
+
+//************************************ Countdown clock ***************************************//
+let data
+let my_para = document.querySelector("#para")
+let number = document.querySelector("#number")
+let btn = document.querySelector("#btn")
+async function lorem() {
+    try {
+        let response = await fetch("https://official-joke-api.appspot.com/random_joke")
+        data = await response.json()
+        console.log(data)
+    } catch (error) {
+        console(error)
+    }
+}
+
+function paragraph(mydata , num){
+    my_para.innerHTML = mydata.setup.repeat(`${num}`)
+    console.log(mydata.setup.repeat(`${num}`))
+    
+}
+let num = number.innerHTML
+btn.addEventListener("click" , (e)=>{
+    e.preventDefault()
+    paragraph(data , 5)
+}
+)
+
+
+lorem()
