@@ -321,32 +321,72 @@
 
 // clock()
 
-//************************************ Countdown clock ***************************************//
-let data
-let my_para = document.querySelector("#para")
-let number = document.querySelector("#number")
-let btn = document.querySelector("#btn")
-async function lorem() {
-    try {
-        let response = await fetch("https://official-joke-api.appspot.com/random_joke")
-        data = await response.json()
-        console.log(data)
-    } catch (error) {
-        console(error)
-    }
-}
+//************************************ Lorem ipsim ***************************************//
+// let data
+// let my_para = document.querySelector("#para")
+// let number = document.querySelector("#number")
+// let btn = document.querySelector("#btn")
+// async function lorem() {
+//     try {
+//         let response = await fetch("https://official-joke-api.appspot.com/random_joke")
+//         data = await response.json()
+//         console.log(data)
+//     } catch (error) {
+//         console(error)
+//     }
+// }
 
-function paragraph(mydata , num){
-    my_para.innerHTML = mydata.setup.repeat(`${num}`)
-    console.log(mydata.setup.repeat(`${num}`))
-    
-}
-let num = number.innerHTML
-btn.addEventListener("click" , (e)=>{
+// function paragraph(mydata , num){
+//     my_para.innerHTML = mydata.setup.repeat(`${num}`)
+//     console.log(mydata.setup.repeat(`${num}`))
+
+// }
+// let num = parseInt(number.value)
+// btn.addEventListener("click" , (e)=>{
+//     e.preventDefault()
+//     paragraph(data , 5)
+// }
+// )
+
+
+// lorem()
+
+
+//************************************ Grocery list ***************************************//
+
+let grocery = document.querySelector("#grocery")
+let list = document.querySelector("#list")
+let add_btn = document.querySelector("#btn")
+let default_text = document.querySelector(".default_text")
+let my_list = []
+
+add_btn.addEventListener("click", (e) => {
     e.preventDefault()
-    paragraph(data , 5)
+    let my_grocery = grocery.value.trim()
+    grocery.value = ""
+    my_list.push(my_grocery)
+    list_fill(my_grocery)
+
+})
+
+
+
+function list_fill(my_grocery) {
+    if (!(my_grocery == "")) {
+        let li = document.createElement("li")
+        li.textContent = `${my_grocery}`
+        if (default_text.classList.contains("d-none")) {
+
+        }
+        else {
+            default_text.classList.add("d-none")
+        }
+
+        list.appendChild(li)
+    }
+    else {
+        alert("plz enter value")
+    }
+
 }
-)
 
-
-lorem()
