@@ -358,6 +358,7 @@ let grocery = document.querySelector("#grocery")
 let list = document.querySelector("#list")
 let add_btn = document.querySelector("#btn")
 let default_text = document.querySelector(".default_text")
+let list_item = document.querySelector(".list_item")
 let my_list = []
 
 add_btn.addEventListener("click", (e) => {
@@ -365,14 +366,12 @@ add_btn.addEventListener("click", (e) => {
     let my_grocery = grocery.value.trim()
     grocery.value = ""
     my_list.push(my_grocery)
-    list_fill(my_grocery)
-
+    list_fill(my_grocery , parseInt(my_list.length))
 })
 
 
-
-function list_fill(my_grocery) {
-    if (!(my_grocery == "")) {
+function list_fill(my_grocery , num) {
+    if (my_grocery !== "") {
         let li = document.createElement("li")
         li.textContent = `${my_grocery}`
         if (default_text.classList.contains("d-none")) {
@@ -381,8 +380,7 @@ function list_fill(my_grocery) {
         else {
             default_text.classList.add("d-none")
         }
-
-        list.appendChild(li)
+        list.append(li)
     }
     else {
         alert("plz enter value")
