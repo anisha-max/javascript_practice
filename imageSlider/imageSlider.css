@@ -1,4 +1,16 @@
-.sliderImgae{
-width: 50vw;
-height: 50vh;
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: fit-content;
+}
+
+.sliderContainer{
+    width: 100vw;
+    overflow: hidden;
+    height: 50vh;
+}
+
+.slider img{
+    width:100vw;
+    height: auto;
 }
