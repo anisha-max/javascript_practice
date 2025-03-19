@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div style="display: flex;">
+    <div style="background-color: red; width: 100px ; height: 100px;" onclick="game('Rock')">
+        Rock
+    </div>
+    <div style="background-color: purple;  width: 100px ; height: 100px;" onclick="game('Paper')">
+        Paper
+    </div>
+    <div style="background-color: skyblue;  width: 100px ; height: 100px;" onclick="game('Scissors')">
+        Scissors
+    </div>
+   </div>
+ <div id="msg"></div>
+ <div class="flex"> 
+    <div>Player Score : <span id="userScore"> 0 </span></div>
+    <div>Computer Score : <span id="compScore"> 0 </span></div>
+ </div>
+</body>
+<script src="RockPaperScissors.js"></script>
+</html>
