@@ -89,11 +89,14 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('You found a match')
             cards[optionone].setAttribute('src' , 'images/white.png')
             cards[optiontwo].setAttribute('src' , 'images/white.png')
+            cards[optionone].removeEventListener('click', flipcard)
+        cards[optiontwo].removeEventListener('click', flipcard)
+
             cardsWon.push(cardChosen)
         }else{
             cards[optionone].setAttribute('src' , 'images/blank.png')
             cards[optiontwo].setAttribute('src' , 'images/blank.png')
-            alert("Try again")
+         
         }
         cardChosen=[]
         cardChosenId = []
