@@ -1,0 +1,17 @@
+.square{
+    height: 150px;
+    width: 150px;
+    border: solid black 2px ;
+}
+.grid{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    width: 460px;
+}
+
+.mole{
+    background-image: url("tamato.png");
+    background-size: cover;
+}
